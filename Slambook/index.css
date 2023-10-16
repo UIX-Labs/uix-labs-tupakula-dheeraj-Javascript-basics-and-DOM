@@ -29,3 +29,26 @@ form{
     text-align: center;
     padding: 20px;
   }
+
+.allSlams{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+    padding: 30px;
+}
+
+.card{
+    font-family: Kalam;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid salmon;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.answer{
+    font-family: Tillana;
+    color: dodgerblue;
+}
