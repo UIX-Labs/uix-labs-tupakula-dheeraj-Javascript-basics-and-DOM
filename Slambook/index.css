@@ -18,6 +18,17 @@ form{
     width: 100%;
     border-bottom: 1px solid black;
   }
+
+  .saveBtn{
+    width: fit-content;
+    padding: 12px 20px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+    align-self: center;
+  }
   
   html,body,*{
     margin: 0;
