@@ -2,6 +2,7 @@ let form;
 let allSlamArray=[];
 //Write code below to select the form element
 
+form = document.getElementsByTagName(form);
 // Write your code above
 console.log(form,"form");
 
