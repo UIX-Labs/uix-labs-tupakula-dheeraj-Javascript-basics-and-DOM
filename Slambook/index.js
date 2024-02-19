@@ -59,19 +59,36 @@ form.addEventListener("submit", (e) => {
    allSlamArray.forEach((item) => {
      // Create a new element for each item
      const element = document.createElement("div");
-
+    element.classList = "card";
      // Set innerHTML or textContent of the element based on the data
      element.innerHTML = `
-      <p>Contact Name: ${item.contactName}</p>
-      <p>Relationship: ${item.relationship}</p>
-      <p>Something You Like in Me: ${item.likeInMe}</p>
-      <p>Something You Hate in Me: ${item.hateInMe}</p>
-      <p>If I Die, Your Reaction: ${item.deadReaction}</p>
-      <p>First Impression: ${item.firstImpression}</p>
-      <p>Beautiful Message: ${item.beautifulMessage}</p>
-      <p>Nickname: ${item.nickname}</p>
-      <p>Song Dedication: ${item.songForMe}</p>
-      <p>Can Share Opinion: ${item.shareOpinion}</p>
+      <p>My name in your contact is <span class="answer">${item.contactName}</span></p>
+
+<p>Relationship between us is <span class="answer">${item.relationship}</span></p>
+
+<p>Something you like in me is <span class="answer">${item.likeInMe}</span></p>
+
+<p>Something you hate in me is <span class="answer">${item.hateInMe}</span></p>
+
+<p>If I die what would be your reaction?</p>
+
+<p><span class="answer">${item.deadReaction}</span></p>
+
+<p>What did you feel when you first saw me?</p>
+
+<p><span class="answer">${item.firstImpression}</span></p>
+
+<p>A beautiful message for me?</p>
+
+<p><span class="answer">${item.beautifulMessage}</span></p>
+
+<p>A nickname for me is <span class="answer">${item.nickname}</span></p>
+
+<p>A song you want to dedicate to me is <span class="answer">${item.songForMe}</span></p>
+
+<p>Can I share your opinion in my status?</p>
+
+<p><span class="answer">${item.shareOpinion}</span></p>
       <hr>
     `;
 
