@@ -51,11 +51,11 @@ form.addEventListener("submit", (e) => {
     formValues.songForMe = songForMe.value;
     formValues.shareOpinion = shareOpinion.value;
 
+    if((contactName,relationship,likeInMe, hateInMe ,deadReaction, firstImpression, beautifulMessage, nickname, shareOpinion, songForMe).value !== "") {
     allSlamArray.push(formValues);
-
-    // Display the data
     console.log(allSlamArray);
- showSlamList();
+    showSlamList();
+  }
    
   });
 
