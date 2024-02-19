@@ -34,6 +34,7 @@ form.addEventListener("submit", (e) => {
     validateInput(beautifulMessage);
     validateInput(nickname);
     validateInput(songForMe);
+    validateInput(shareOpinion);
     
     allSlamArray.splice(0, allSlamArray.length);
 
@@ -82,7 +83,7 @@ function showSlamList() {
      // Create a new element for each item
      const element = document.createElement("div");
     element.classList = "card";
-    
+
      element.innerHTML = `
       <p>My name in your contact is <span class="answer">${item.contactName}</span></p>
 
