@@ -12,19 +12,89 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   console.log("I am inside submit");
 
-  const formData = new FormData(form);
+ 
+    const contactName = form.querySelector('input[name="contactName"]');
+    const relationship = form.querySelector('input[name="relationship"]');
+    const likeInMe = form.querySelector('input[name="likeInMe"]');
+    const hateInMe = form.querySelector('input[name="hateInMe"]');
+    const deadReaction = form.querySelector('input[name="deadReaction"]');
+    const firstImpression = form.querySelector('input[name="firstImpression"]');
+    const beautifulMessage = form.querySelector('input[name="beautifulMessage"]');
+    const nickname = form.querySelector('input[name="nickname"]');
+    const songForMe = form.querySelector('input[name="songForMe"]');
+    const shareOpinion = form.querySelector('input[name="shareOpinion"]');
 
-  for (const [name, value] of formData) {
-    allSlamArray.push({ name, value });
-  }
-  console.log(allSlamArray);
-  if (allSlamArray.length >= 11) {
-    allSlamArray.splice(0, 10);
-  }
-  form.querySelectorAll("input").forEach((input) => {
-    input.value = "";
+    // Validate inputs
+    validateInput(contactName);
+    validateInput(relationship);
+    validateInput(likeInMe);
+    validateInput(hateInMe);
+    validateInput(deadReaction);
+    validateInput(firstImpression);
+    validateInput(beautifulMessage);
+    validateInput(nickname);
+    validateInput(songForMe);
+    
+    allSlamArray.splice(0, allSlamArray.length);
+
+    // Store the data in allSlamArray
+    const formValues = {};
+    formValues.contactName = contactName.value;
+    formValues.relationship = relationship.value;
+    formValues.likeInMe = likeInMe.value;
+    formValues.hateInMe = hateInMe.value;
+    formValues.deadReaction = deadReaction.value;
+    formValues.firstImpression = firstImpression.value;
+    formValues.beautifulMessage = beautifulMessage.value;
+    formValues.nickname = nickname.value;
+    formValues.songForMe = songForMe.value;
+    formValues.shareOpinion = shareOpinion.value;
+
+    allSlamArray.push(formValues);
+
+    // Display the data
+    console.log(allSlamArray);
+
+    const allSlams = document.querySelector('.allSlams');
+   allSlamArray.forEach((item) => {
+     // Create a new element for each item
+     const element = document.createElement("div");
+
+     // Set innerHTML or textContent of the element based on the data
+     element.innerHTML = `
+      <p>Contact Name: ${item.contactName}</p>
+      <p>Relationship: ${item.relationship}</p>
+      <p>Something You Like in Me: ${item.likeInMe}</p>
+      <p>Something You Hate in Me: ${item.hateInMe}</p>
+      <p>If I Die, Your Reaction: ${item.deadReaction}</p>
+      <p>First Impression: ${item.firstImpression}</p>
+      <p>Beautiful Message: ${item.beautifulMessage}</p>
+      <p>Nickname: ${item.nickname}</p>
+      <p>Song Dedication: ${item.songForMe}</p>
+      <p>Can Share Opinion: ${item.shareOpinion}</p>
+      <hr>
+    `;
+
+     // Append the newly created element to the container
+     allSlams.appendChild(element);
+   });
   });
-});
+
+  
+
+  function validateInput(input) {
+    if (input.value.trim() === "") {
+      input.style.borderBottom = "2px solid red";
+      const errorMessage = document.createElement("span");
+      errorMessage.textContent = "Error: The text is required";
+      input.after(errorMessage);
+      setTimeout(() => {
+        errorMessage.textContent = "";
+      },5000);
+      return false;
+    }
+    return true;
+  }
 //Write your code above
 
 function showSlamList() {
