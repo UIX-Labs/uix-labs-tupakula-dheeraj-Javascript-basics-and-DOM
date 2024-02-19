@@ -54,13 +54,35 @@ form.addEventListener("submit", (e) => {
 
     // Display the data
     console.log(allSlamArray);
+ showSlamList();
+   
+  });
 
-    const allSlams = document.querySelector('.allSlams');
+  
+
+  function validateInput(input) {
+    if (input.value.trim() === "") {
+      input.style.borderBottom = "2px solid red";
+      const errorMessage = document.createElement("span");
+      errorMessage.textContent = "Error: The text is required";
+      input.after(errorMessage);
+      setTimeout(() => {
+        errorMessage.textContent = "";
+      },5000);
+      return false;
+    }
+    return true;
+  }
+//Write your code above
+
+function showSlamList() {
+  //Update the function here
+  const allSlams = document.querySelector('.allSlams');
    allSlamArray.forEach((item) => {
      // Create a new element for each item
      const element = document.createElement("div");
     element.classList = "card";
-     // Set innerHTML or textContent of the element based on the data
+    
      element.innerHTML = `
       <p>My name in your contact is <span class="answer">${item.contactName}</span></p>
 
@@ -92,33 +114,10 @@ form.addEventListener("submit", (e) => {
       <hr>
     `;
 
-     // Append the newly created element to the container
      allSlams.appendChild(element);
    });
-  });
-
-  
-
-  function validateInput(input) {
-    if (input.value.trim() === "") {
-      input.style.borderBottom = "2px solid red";
-      const errorMessage = document.createElement("span");
-      errorMessage.textContent = "Error: The text is required";
-      input.after(errorMessage);
-      setTimeout(() => {
-        errorMessage.textContent = "";
-      },5000);
-      return false;
-    }
-    return true;
-  }
-//Write your code above
-
-function showSlamList() {
-  //Update the function here
- 
   // Write your code above this line
-  showSlamList();
+ 
 }
 
 
